@@ -1505,6 +1505,7 @@ GameObject:
   - component: {fileID: 1374338740}
   - component: {fileID: 1374338739}
   - component: {fileID: 1374338741}
+  - component: {fileID: 1374338742}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1575,6 +1576,56 @@ MonoBehaviour:
   StaminaToHealthConversion: 10
   StaminaText: {fileID: 1497646137}
   HealthText: {fileID: 346500829}
+--- !u!114 &1374338742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374338738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7422dc444e15494ca57514b728ba85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnItemEquipped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1374338741}
+        m_TargetAssemblyTypeName: CharacterStats, Assembly-CSharp
+        m_MethodName: OnItemEquipped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnItemUnequipped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1374338741}
+        m_TargetAssemblyTypeName: CharacterStats, Assembly-CSharp
+        m_MethodName: OnItemUnequipped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DEBUG_ToEquip:
+  - {fileID: 11400000, guid: 7de41f8282c4d3b47ad8ae2de8a9dd39, type: 2}
+  - {fileID: 11400000, guid: 9185c45e74be2734f93ba98b413c3a44, type: 2}
+  - {fileID: 11400000, guid: 966ea0a9e32662e41ba6b743376200db, type: 2}
+  - {fileID: 11400000, guid: 1e42d3c9278da064b8763832f8d34184, type: 2}
+  - {fileID: 11400000, guid: da79832a49e5b1d498baad188251266c, type: 2}
+  DEBUG_Equip: 0
+  DEBUG_UnequipAll: 0
 --- !u!1 &1497646134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2297,6 +2348,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
