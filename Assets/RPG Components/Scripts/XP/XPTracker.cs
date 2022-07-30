@@ -16,6 +16,8 @@ public class XPTracker : MonoBehaviour
 
     BaseXPTranslation XPTranslation;
 
+    public int CurrentLevel => XPTranslation.CurrentLevel;
+
     private void Awake()
     {
         XPTranslation = ScriptableObject.Instantiate(XPTranslationType);

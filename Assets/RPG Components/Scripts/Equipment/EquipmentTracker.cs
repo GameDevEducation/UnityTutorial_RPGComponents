@@ -16,7 +16,13 @@ public enum EEquipmentSlot
     Neck        = 60,
     Head        = 70,
     Ring1       = 80,
-    Ring2       = 90
+    Ring2       = 90,
+
+    Armour_Begins = 1,
+    Armour_Ends = 99,
+
+    Weapon_Begins = 100,
+    Weapon_Ends = 199,
 }
 
 public class EquipmentTracker : MonoBehaviour
@@ -31,6 +37,9 @@ public class EquipmentTracker : MonoBehaviour
     public Dictionary<EEquipmentSlot, EquipmentBase> Current { get; private set; } = new Dictionary<EEquipmentSlot, EquipmentBase>();
     public int StaminaModifier { get; private set; } = 0;
     public int HealthModifier { get; private set; } = 0;
+    public int StrengthModifier { get; private set; } = 0;
+    public int DexterityModifier { get; private set; } = 0;
+    public int IntellectModifier { get; private set; } = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +78,7 @@ public class EquipmentTracker : MonoBehaviour
             Current.Clear();
 
             // reset the modifiers
-            StaminaModifier = HealthModifier = 0;
+            StaminaModifier = HealthModifier = DexterityModifier = IntellectModifier = StrengthModifier = 0;
 
             OnItemUnequipped.Invoke(null);
         }
@@ -86,6 +95,9 @@ public class EquipmentTracker : MonoBehaviour
         // remove the stamina gain from the item
         StaminaModifier -= previousItem.Stamina;
         HealthModifier -= previousItem.Health;
+        StrengthModifier -= previousItem.Strength;
+        DexterityModifier -= previousItem.Dexterity;
+        IntellectModifier -= previousItem.Intellect;
 
         OnItemUnequipped.Invoke(previousItem);
     }
@@ -102,11 +114,17 @@ public class EquipmentTracker : MonoBehaviour
         {
             StaminaModifier -= previousItem.Stamina;
             HealthModifier -= previousItem.Health;
+            StrengthModifier -= previousItem.Strength;
+            DexterityModifier -= previousItem.Dexterity;
+            IntellectModifier -= previousItem.Intellect;
         }
 
         // add the bonuses of the new item
         StaminaModifier += newItem.Stamina;
         HealthModifier += newItem.Health;
+        StrengthModifier += newItem.Strength;
+        DexterityModifier += newItem.Dexterity;
+        IntellectModifier += newItem.Intellect;
 
         if (sendNotifications)
             OnItemEquipped.Invoke(newItem);
